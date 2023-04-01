@@ -63,10 +63,9 @@ module Enumerable
     arr
   end
 
-  def my_inject(&block)
-    acc = 0
+  def my_inject(acc, &block)
     for i in self do
-      acc += block.call(i)
+      acc = block.call(acc, i)
     end
     acc
   end
