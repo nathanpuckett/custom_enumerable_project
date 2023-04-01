@@ -39,6 +39,38 @@ module Enumerable
     true
   end
 
+  def my_count(&block)
+    count = 0
+
+    if block_given?
+      for i in self do
+        count += 1 if block.call(i)
+      end
+    else
+      for i in self do
+        count += 1 if i
+      end  
+    end
+
+    count
+  end
+
+  def my_map(&block)
+    arr = []
+    for i in self do
+      arr << block.call(i)
+    end
+    arr
+  end
+
+  def my_inject(&block)
+    acc = 0
+    for i in self do
+      acc += block.call(i)
+    end
+    acc
+  end
+
 end
 
 # You will first have to define my_each
