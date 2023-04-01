@@ -17,6 +17,28 @@ module Enumerable
     end
     arr
   end
+
+  def my_all?(&block)
+    for i in self do
+      return false unless block.call(i)
+    end
+    true
+  end
+
+  def my_any?(&block)
+    for i in self do
+      return true if block.call(i)
+    end
+    false
+  end
+
+  def my_none?(&block)
+    for i in self do
+      return false if block.call(i)
+    end
+    true
+  end
+
 end
 
 # You will first have to define my_each
