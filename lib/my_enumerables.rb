@@ -8,7 +8,15 @@ module Enumerable
     self
   end
 
-  
+  def my_select(&block)
+    arr = []
+    for i in self do
+      if block.call(i)
+        arr << i
+      end
+    end
+    arr
+  end
 end
 
 # You will first have to define my_each
