@@ -1,5 +1,14 @@
 module Enumerable
   # Your code goes here
+  def my_each_with_index(&block)
+    for i in 0...self.length do
+      block.call(self[i], i)
+    end
+
+    self
+  end
+
+  
 end
 
 # You will first have to define my_each
